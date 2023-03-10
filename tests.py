@@ -47,3 +47,47 @@ def simpleCaseTest():
         return "simpleCaseTest passed"
     else:
         return "simpleCaseTest failed"
+
+def testUnitMatrix():
+    e = 0.000001
+
+    A_input = [[1, 1, 1],
+               [1, 1, 1],
+               [1, 1, 1]]
+
+    B_input = [1, 2, -3]
+
+    ans = [1.0, 2.0, -3.0]
+
+    x_matrix = mat.createMatrixTemplateB(3)
+
+    x_output = f.calculateIterations(f.iterFormForA(A_input), f.iterFormForB(A_input, B_input), x_matrix, e)
+
+    if x_output == ans:
+        return "testUnitMatrix passed"
+    else:
+        return "testUnitMatrix failed"
+
+
+
+def testZeroCase():
+    e = 0.000001
+
+    A_input = [[0, 0, 0],
+               [0, 0, 0],
+               [0, 0, 0]]
+
+    B_input = [1, 2, -3]
+
+    if not f.testMatrix(A_input):
+        return "testZeroCase passed"
+    else:
+        return "testZeroCase failed"
+
+
+def allTests():
+
+    print(iterationFormTests(), "\n")
+    print(simpleCaseTest(), "\n")
+    print(testUnitMatrix(), "\n")
+    print(testZeroCase(), "\n")

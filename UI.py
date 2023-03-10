@@ -1,6 +1,7 @@
 import file_reader as fr
 import iteratin_method as f
 import matrix_generator as m
+import tests as t
 
 
 def initUserInterface():
@@ -8,6 +9,7 @@ def initUserInterface():
     print("1. Random matrix")
     print("2. Get matrix from file \"input_matrix.txt\"")
     print("3. Write matrix in terminal")
+    print("4. Run tests")
     raw_input_data = input()
     try:
         data = int(raw_input_data)
@@ -15,7 +17,7 @@ def initUserInterface():
         print("Wrong input, please write a number of option\n")
         return False
 
-    if data > 3 or data < 1:
+    if data > 4 or data < 1:
         print("Wrong number of option!\n")
         return False
 
@@ -33,7 +35,13 @@ def initUserInterface():
         while not (terminalMatrix()):
             continue
 
+    elif data == 4:
+
+        t.allTests()
+
     return True
+
+
 
 
 def terminalMatrix():
@@ -73,7 +81,6 @@ def terminalMatrix():
         result = f.calculateIterations(matrixC, matrixD, matrixZero, e)
 
         print("Roots:", result)
-
 
     else:
 
